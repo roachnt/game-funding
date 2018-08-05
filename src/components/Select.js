@@ -56,6 +56,24 @@ export default class Select extends React.Component {
               </div>
             ))}
           </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 14 9"
+            style={{
+              position: "absolute",
+              top: 12,
+              right: -9,
+              display: downshift.isOpen ? "none" : "inline-block"
+            }}
+          >
+            <polygon
+              fill="#fff"
+              points="175 13 182 22 168 22"
+              transform="matrix(1 0 0 -1 -168 22)"
+            />
+          </svg>
         </div>
       )}
     </Downshift>
