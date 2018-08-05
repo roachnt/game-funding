@@ -57,7 +57,11 @@ export default class Login extends React.Component {
                 `}
               >
                 <p style={{ fontSize: 30, marginBottom: 0 }}>Login</p>
-                <a href="https://id.twitch.tv/oauth2/authorize?client_id=dg93br2vn212x9jmgfem7uj4lkypgo&amp;redirect_uri=http://localhost:3000/login&amp;scope=openid+user:read:email&amp;response_type=token+id_token">
+                <a
+                  href={`https://id.twitch.tv/oauth2/authorize?client_id=dg93br2vn212x9jmgfem7uj4lkypgo&amp;redirect_uri=${
+                    window.location.origin
+                  }/login&amp;scope=openid+user:read:email&amp;response_type=token+id_token`}
+                >
                   <div
                     className={css`
                       width: 80%;
