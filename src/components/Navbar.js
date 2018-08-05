@@ -33,17 +33,19 @@ export default () => (
 );
 
 const Login = () => (
-  <div
-    className={css`
-      display: inline-block;
-      color: white;
-      height: 100%;
-      margin: 0 10px;
-      cursor: pointer;
-    `}
-  >
-    <FlexContainer>Login</FlexContainer>
-  </div>
+  <a href="https://id.twitch.tv/oauth2/authorize?client_id=dg93br2vn212x9jmgfem7uj4lkypgo&amp;redirect_uri=http://localhost:3000&amp;scope=openid+user:read:email&amp;response_type=token+id_token">
+    <div
+      className={css`
+        display: inline-block;
+        color: white;
+        height: 100%;
+        margin: 0 10px;
+        cursor: pointer;
+      `}
+    >
+      <FlexContainer>Login</FlexContainer>
+    </div>
+  </a>
 );
 
 const SignUp = () => (

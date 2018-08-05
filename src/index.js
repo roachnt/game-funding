@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { injectGlobal } from "emotion";
+import Router from "./Router";
 
 injectGlobal`
 body,html, #root {
@@ -13,5 +13,5 @@ body,html, #root {
 }
 `;
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Router />, document.getElementById("root"));
 registerServiceWorker();

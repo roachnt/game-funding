@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { css } from "emotion";
-import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousel";
-import Select from "./components/Select";
+import Navbar from "../components/Navbar";
+import Carousel from "../components/Carousel";
+import Select from "../components/Select";
 
 const filterOptions = [
   { value: "All Games" },

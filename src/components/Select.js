@@ -58,18 +58,27 @@ const selectItemStyle = ({
   width: 100%;
   background: #7b7b7b;
   padding: ${selectedItem !== item && !isOpen ? 0 : "5px 10px"};
-  border-radius: ${() => {
-    if (index === 0) {
-      return isOpen ? "5px 5px 0px 0px" : "5px";
-    }
-    if (index === itemLength - 1) {
-      return isOpen ? "0px 0px 5px 5px" : "5px";
-    } else return isOpen ? 0 : "5px";
-  }};
+  ${handleListBorderRadius({ index, itemLength, isOpen })};
   overflow-y: hidden;
   cursor: pointer;
   height: ${selectedItem !== item && !isOpen ? 0 : "auto"};
 `;
+
+const handleListBorderRadius = ({ index, itemLength, isOpen }) => {
+  if (index === 0) {
+    return css`
+      border-radius: ${isOpen ? "5px 5px 0px 0px" : "5px"};
+    `;
+  }
+  if (index === itemLength - 1) {
+    return css`
+      border-radius: ${isOpen ? "0px 0px 5px 5px" : "5px"};
+    `;
+  } else
+    return css`
+      border-radius: ${isOpen ? 0 : "5px"};
+    `;
+};
 
 const Triangle = ({ isOpen }) => (
   <svg
