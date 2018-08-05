@@ -44,7 +44,7 @@ export default class Carousel extends React.Component {
       <div
         style={{
           height: "100%",
-          transition: "1s",
+          transition: `${this.props.switchTime}ms` || "1000ms",
           transform: `translateX(-${this.state.position * 100}vw)`
         }}
       >

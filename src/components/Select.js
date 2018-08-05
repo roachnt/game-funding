@@ -7,7 +7,7 @@ export default class Select extends React.Component {
 
   render = () => (
     <Downshift
-      onChange={selection => this.props.setValue(selection)}
+      onChange={selection => this.props.setValue(selection.value)}
       itemToString={item => (item ? item.value : "")}
       defaultSelectedItem={this.props.items[0]}
     >

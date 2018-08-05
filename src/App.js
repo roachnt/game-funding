@@ -4,19 +4,27 @@ import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import Select from "./components/Select";
 
-const filterOptions = [{ value: "All Games" }, { value: "Leage of Legends" }];
+const filterOptions = [
+  { value: "All Games" },
+  { value: "Rocket League" },
+  { value: "Age of Empires 2" }
+];
 
 const sortOptions = [{ value: "Amount" }, { value: "Backers" }];
 
 class App extends Component {
-  state = { filterValue: filterOptions[0], sortValue: sortOptions[0] };
+  state = {
+    filterValue: filterOptions[0].value,
+    sortValue: sortOptions[0].value
+  };
   render() {
     return (
       <div className="App">
         <Navbar />
-        <Carousel height={375}>
+        <Carousel height={375} switchTime={500}>
           <div style={{ background: "black", height: "100%" }} />
           <div style={{ background: "blue", height: "100%" }} />
+          <div style={{ background: "red", height: "100%" }} />
         </Carousel>
         <div
           className={css`
