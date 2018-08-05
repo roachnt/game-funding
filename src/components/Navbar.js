@@ -1,39 +1,117 @@
 import React from "react";
 import { css } from "emotion";
+import { Link } from "react-router-dom";
+
 import FlexContainer from "./FlexContainer";
-export default () => (
+import UserContext from "./UserContext";
+export default ({ absolute }) => (
+  <UserContext.Consumer>
+    {({ user, setUser }) => (
+      <div
+        className={css`
+          z-index: 1;
+          height: 60px;
+          width: 100vw;
+          background: #25308d;
+          ${absolute &&
+            css`
+              position: absolute;
+            `};
+        `}
+      >
+        <div
+          className={css`
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+            vertical-align: top;
+          `}
+        >
+          <Link to="/" style={{ color: "white" }}>
+            <div
+              className={css`
+                height: 100%;
+                display: inline-block;
+                margin: 0 20px;
+              `}
+            >
+              <FlexContainer>Home</FlexContainer>
+            </div>
+          </Link>
+        </div>
+        <div
+          className={css`
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: right;
+          `}
+        >
+          {user ? (
+            <React.Fragment>
+              <div
+                className={css`
+                  width: 40px;
+                  height: 100%;
+                  display: inline-block;
+                `}
+              >
+                <FlexContainer>
+                  <img src={user.profile_image_url} height={30} />
+                </FlexContainer>
+              </div>
+              <User>{user.display_name}</User>
+              <Logout onClick={() => setUser(null)} />
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Login />
+              <SignUp />
+            </React.Fragment>
+          )}
+        </div>
+      </div>
+    )}
+  </UserContext.Consumer>
+);
+
+const User = ({ children }) => (
   <div
     className={css`
-      height: 60px;
-      width: 100vw;
-      background: #25308d;
+      height: 100%;
+      margin: 0 10px;
+      cursor: pointer;
+      color: white;
+      display: inline-block;
+      vertical-align: top;
+      &:hover {
+        color: red;
+      }
     `}
   >
-    <div
-      className={css`
-        width: 50%;
-        height: 100%;
-        display: inline-block;
-        vertical-align: top;
-      `}
-    />
-    <div
-      className={css`
-        width: 50%;
-        height: 100%;
-        display: inline-block;
-        vertical-align: top;
-        text-align: right;
-      `}
-    >
-      <Login />
-      <SignUp />
-    </div>
+    <FlexContainer>{children}</FlexContainer>
+  </div>
+);
+
+const Logout = ({ onClick }) => (
+  <div
+    className={css`
+      display: inline-block;
+      color: white;
+      height: 100%;
+      margin: 0 10px;
+      cursor: pointer;
+      vertical-align: top;
+    `}
+    onClick={onClick}
+  >
+    <FlexContainer>logout</FlexContainer>
   </div>
 );
 
 const Login = () => (
-  <a href="https://id.twitch.tv/oauth2/authorize?client_id=dg93br2vn212x9jmgfem7uj4lkypgo&amp;redirect_uri=http://localhost:3000&amp;scope=openid+user:read:email&amp;response_type=token+id_token">
+  <Link to="/login">
     <div
       className={css`
         display: inline-block;
@@ -43,9 +121,9 @@ const Login = () => (
         cursor: pointer;
       `}
     >
-      <FlexContainer>Login</FlexContainer>
+      <FlexContainer>login</FlexContainer>
     </div>
-  </a>
+  </Link>
 );
 
 const SignUp = () => (
@@ -58,6 +136,6 @@ const SignUp = () => (
       cursor: pointer;
     `}
   >
-    <FlexContainer>Sign Up</FlexContainer>
+    <FlexContainer>sign up</FlexContainer>
   </div>
 );
