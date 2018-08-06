@@ -38,7 +38,7 @@ export default ({ absolute }) => (
               className={css`
                 height: 100%;
                 display: inline-block;
-                margin: 0 20px;
+                margin: 0 10px;
               `}
             >
               <FlexContainer>home</FlexContainer>
