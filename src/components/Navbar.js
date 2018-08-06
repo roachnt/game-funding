@@ -17,6 +17,9 @@ export default ({ absolute }) => (
             css`
               position: absolute;
             `};
+          @media (max-width: 768px) {
+            text-align: center;
+          }
         `}
       >
         <div
@@ -25,6 +28,9 @@ export default ({ absolute }) => (
             height: 100%;
             display: inline-block;
             vertical-align: top;
+            @media (max-width: 768px) {
+              width: auto;
+            }
           `}
         >
           <Link to="/" style={{ color: "white" }}>
@@ -46,6 +52,10 @@ export default ({ absolute }) => (
             display: inline-block;
             vertical-align: top;
             text-align: right;
+
+            @media (max-width: 768px) {
+              width: auto;
+            }
           `}
         >
           {user ? (

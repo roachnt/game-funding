@@ -3,7 +3,20 @@ import { css } from "emotion";
 
 export default class Carousel extends React.Component {
   state = { position: 0 };
-  slide = position => this.setState({ position });
+  slide = position => {
+    // Set the position
+    this.setState({ position });
+    // Clear the old interval and set again so it doesn't switch
+    // the slide right after clicking one
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      if (this.state.position === this.props.children.length - 1)
+        return this.setState({ position: 0 });
+      this.setState(({ position }) => {
+        return { position: position + 1 };
+      });
+    }, 5000);
+  };
 
   componentDidMount = () => {
     this.interval = setInterval(() => {
