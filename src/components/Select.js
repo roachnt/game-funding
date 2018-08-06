@@ -13,7 +13,10 @@ export default props => (
         className={selectContainerStyle(downshift)}
         onClick={!downshift.isOpen ? downshift.openMenu : null}
       >
-        <div style={{ width: "100%" }} {...downshift.getMenuProps()}>
+        <div
+          style={{ width: "100%", textAlign: "left" }}
+          {...downshift.getMenuProps()}
+        >
           {props.items.map((item, index) => (
             <div
               className={selectItemStyle({

@@ -32,16 +32,55 @@ class App extends Component {
             background: #3a3a3a;
           `}
         >
-          <div style={{ padding: 15 }}>
-            <div style={{ display: "inline-block", color: "white" }}>
-              Filter:{" "}
+          <div
+            className={css`
+              padding: 15px;
+              @media (max-width: 768px) {
+                text-align: center;
+              }
+            `}
+          >
+            <div
+              className={css`
+                display: inline-block;
+                color: white;
+                margin: 10px auto;
+                @media (max-width: 768px) {
+                  display: block;
+                }
+              `}
+            >
+              <div
+                className={css`
+                  display: inline-block;
+                  margin-top: 5px;
+                `}
+              >
+                Filter:{" "}
+              </div>
               <Select
                 items={filterOptions}
                 setValue={filterValue => this.setState({ filterValue })}
               />
             </div>
-            <div style={{ display: "inline-block", color: "white" }}>
-              Sort:{" "}
+            <div
+              className={css`
+                display: inline-block;
+                color: white;
+                margin: 10px auto;
+                @media (max-width: 768px) {
+                  display: block;
+                }
+              `}
+            >
+              <div
+                className={css`
+                  display: inline-block;
+                  margin-top: 5px;
+                `}
+              >
+                Sort:{" "}
+              </div>
               <Select
                 items={sortOptions}
                 setValue={sortValue => this.setState({ sortValue })}

@@ -35,7 +35,7 @@ export default ({ absolute }) => (
                 margin: 0 20px;
               `}
             >
-              <FlexContainer>Home</FlexContainer>
+              <FlexContainer>home</FlexContainer>
             </div>
           </Link>
         </div>

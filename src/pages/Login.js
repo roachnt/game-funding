@@ -24,6 +24,7 @@ export default class Login extends React.Component {
       })
         .then(res => res.json())
         .then(json => {
+          // TODO: Send user data to API and create user in database
           this.setUser(json.data[0]);
           history.push("/");
         });
@@ -49,34 +50,110 @@ export default class Login extends React.Component {
             >
               <div
                 className={css`
-                  height: 400px;
                   width: 350px;
-                  border-radius: 5px;
-                  background: white;
                   text-align: center;
+                  color: black;
+                  font-size: 22px;
                 `}
               >
-                <p style={{ fontSize: 30, marginBottom: 0 }}>Login</p>
+                <form
+                  className={css`
+                    background: white;
+                    padding: 10px;
+                    border-radius: 5px;
+                  `}
+                >
+                  <div style={{ marginBottom: 15 }}>
+                    <div
+                      className={css`
+                        text-align: left;
+                        width: 80%;
+                        display: inline-block;
+                        margin: 0px auto;
+                      `}
+                    >
+                      <label htmlFor="username-email">username or email</label>
+                    </div>
+                    <input
+                      className={css`
+                        width: 80%;
+                        outline: none;
+                        border: none;
+                        font-size: 22px;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        border: 1px solid black;
+                      `}
+                      type="text"
+                      name="username-email"
+                    />
+                  </div>
+                  <div>
+                    <div
+                      className={css`
+                        text-align: left;
+                        width: 80%;
+                        display: inline-block;
+                        margin: 0 auto;
+                      `}
+                    >
+                      <label htmlFor="password">password</label>
+                    </div>
+                    <input
+                      className={css`
+                        width: 80%;
+                        outline: none;
+                        border: none;
+                        font-size: 22px;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        border: 1px solid black;
+                      `}
+                      type="text"
+                      name="password"
+                    />
+                  </div>
+                  <button
+                    className={css`
+                      background: #25308d;
+                      outline: none;
+                      border: none;
+                      font-size: 20px;
+                      color: white;
+                      font-family: Avenir;
+                      border-radius: 3px;
+                      margin-top: 10px;
+                      padding: 5px 10px;
+                    `}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
                 <a
+                  style={{ textDecoration: "none" }}
                   href={`https://id.twitch.tv/oauth2/authorize?client_id=dg93br2vn212x9jmgfem7uj4lkypgo&amp;redirect_uri=${
                     window.location.origin
                   }/login&amp;scope=openid+user:read:email&amp;response_type=token+id_token`}
                 >
                   <div
                     className={css`
-                      width: 80%;
-                      height: 50px;
+                      width: 60%;
+                      height: 45px;
                       border-radius: 5px;
-                      border: 2px solid #6441a5;
+                      border: 3px solid #6441a5;
+                      background: white;
                       margin: 15px auto;
-                      box-shadow: 2px 2px 5px grey;
                     `}
                   >
                     <FlexContainer>
+                      <div style={{ fontSize: 18, marginRight: 10 }}>
+                        login with
+                      </div>
                       <img
                         alt="Twitch"
                         src={require("../Twitch_logo.svg")}
-                        width={70}
+                        width={50}
                       />
                     </FlexContainer>
                   </div>
