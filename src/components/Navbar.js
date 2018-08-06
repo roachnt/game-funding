@@ -95,8 +95,8 @@ const User = ({ children }) => (
       color: white;
       display: inline-block;
       vertical-align: top;
-      &:hover {
-        color: red;
+      @media (max-width: 768px) {
+        display: none;
       }
     `}
   >
