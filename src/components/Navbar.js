@@ -144,6 +144,9 @@ const SignUp = () => (
       height: 100%;
       margin: 0 30px 0 10px;
       cursor: pointer;
+      @media (max-width: 768px) {
+        margin: 0 10px;
+      }
     `}
   >
     <FlexContainer>sign up</FlexContainer>
