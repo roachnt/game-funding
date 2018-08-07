@@ -72,6 +72,7 @@ export default class Carousel extends React.Component {
       >
         {this.props.children.map((child, i) => (
           <div
+            key={`carousel-slide-${i}`}
             style={{
               height: "100%",
               width: "100%",

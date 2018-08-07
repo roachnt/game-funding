@@ -60,17 +60,7 @@ export default ({ absolute }) => (
         >
           {user ? (
             <React.Fragment>
-              <div
-                className={css`
-                  width: 40px;
-                  height: 100%;
-                  display: inline-block;
-                `}
-              >
-                <FlexContainer>
-                  <img src={user.profile_image_url} height={30} />
-                </FlexContainer>
-              </div>
+              <ProfilePicture src={user.profile_image_url} height={30} />
               <User>{user.display_name}</User>
               <Logout onClick={() => setUser(null)} />
             </React.Fragment>
@@ -84,6 +74,20 @@ export default ({ absolute }) => (
       </div>
     )}
   </UserContext.Consumer>
+);
+
+const ProfilePicture = ({ src, height }) => (
+  <div
+    className={css`
+      width: 40px;
+      height: 100%;
+      display: inline-block;
+    `}
+  >
+    <FlexContainer>
+      <img alt="profile" src={src} height={height} />
+    </FlexContainer>
+  </div>
 );
 
 const User = ({ children }) => (
