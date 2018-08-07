@@ -9,7 +9,7 @@ import { getUserClips } from "../helpers/twitchHelper";
 const filterOptions = [
   { value: "all games" },
   { value: "Rocket League" },
-  { value: "Age of Empires 2" }
+  { value: "Age of Empires II" }
 ];
 
 const sortOptions = [{ value: "amount" }, { value: "backers" }];
