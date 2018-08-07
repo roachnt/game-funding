@@ -1,6 +1,7 @@
 import { getTwitchUser } from "../helpers/twitchHelper";
+import api from "../helpers/api";
 export const getMatchesAndFormat = () =>
-  fetch("http://localhost:8000/matches")
+  fetch(`${api}/matches`)
     .then(res => res.json())
     .then(async matches => {
       matches = await Promise.all(

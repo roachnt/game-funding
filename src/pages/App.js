@@ -200,13 +200,15 @@ class PlayerCard extends React.Component {
           json.data.length > 0 &&
           this.setState({
             clip:
-              json.data[parseInt(Math.random() * json.data.length)].embed_url
+              json.data[parseInt(Math.random() * json.data.length, 10)]
+                .embed_url
           })
       );
   };
   render = () =>
     this.state.clip ? (
       <iframe
+        title={this.props.player.id}
         src={this.state.clip}
         height="150"
         width="150"
