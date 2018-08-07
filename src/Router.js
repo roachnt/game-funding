@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import App from "./pages/App";
 import Login from "./pages/Login";
 import UserContext from "./components/UserContext";
+import Match from "./pages/Match";
 
 export default class MyRouter extends React.Component {
   setUser = user => this.setState({ user });
@@ -20,6 +21,7 @@ export default class MyRouter extends React.Component {
         <Switch>
           <Route exact path="/" component={App} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/matches/:matchId" component={Match} />
         </Switch>
       </UserContext.Provider>
     </Router>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { css } from "emotion";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import Select from "../components/Select";
@@ -65,6 +66,11 @@ class App extends Component {
                       width: 50%;
                       vertical-align: top;
                       box-sizing: border-box;
+                      @media (max-width: 1200px) {
+                        width: 100%;
+                        display: block;
+                        margin: 20px auto;
+                      }
                     `}
                   >
                     <div
@@ -120,21 +126,23 @@ class App extends Component {
                         >
                           <div>{match.game.title}</div>
                           <div>${match.currentAmount}</div>
-                          <button
-                            className={css`
-                              margin-top: 15px;
-                              cursor: pointer;
-                              background: white;
-                              color: #25308d;
-                              font-size: 22px;
-                              border: none;
-                              outline: none;
-                              border-radius: 3px;
-                              padding: 5px 10px;
-                            `}
-                          >
-                            fund this match
-                          </button>
+                          <Link to={`/matches/${match._id}`}>
+                            <button
+                              className={css`
+                                margin-top: 15px;
+                                cursor: pointer;
+                                background: white;
+                                color: #25308d;
+                                font-size: 22px;
+                                border: none;
+                                outline: none;
+                                border-radius: 3px;
+                                padding: 5px 10px;
+                              `}
+                            >
+                              fund this match
+                            </button>
+                          </Link>
                         </div>
                       </div>
                       <div
@@ -214,12 +222,12 @@ class PlayerCard extends React.Component {
         width="150"
         frameborder="0"
         scrolling="no"
-        allowfullscreen="true"
+        allowFullScreen="true"
       />
     ) : (
       <img
         alt="team2"
-        style={{ margin: 0 }}
+        style={{ margin: 0, borderRadius: 3 }}
         src={this.props.player.profile_image_url}
         width={150}
       />
